@@ -33,23 +33,23 @@ class PGDLLexer(Lexer):
         "GLOBAL_IDENTIFIER": Name.Class,
         "FIELD_NAME_IDENTIFIER": Name.Property,
         "VAR_REF_IDENTIFIER": Name.Variable.Instance,
-        "TYPE_REF_IDENTIFIER": Name.Variable.Global,
+        "TYPE_REF_IDENTIFIER": Name.Builtin,
         "FUN_NAME_IDENTIFIER": Name.Function,
         "KEY_IDENTIFIER": Name.Attribute,
 
-        "VARIANT": Keyword.Type,
-        "STRUCT": Keyword.Type,
-        "BITS": Keyword.Type,
-        "UNION": Keyword.Type,
-        "SWITCH": Keyword.Type,
+        "VARIANT": Keyword,
+        "STRUCT": Keyword,
+        "BITS": Keyword,
+        "UNION": Keyword,
+        "SWITCH": Keyword,
         "CASE": Keyword,
-        "REPEAT": Keyword.Type,
+        "REPEAT": Keyword,
 
         "TRUE": Keyword.Constant,
         "FALSE": Keyword.Constant,
         "NULL": Keyword.Constant,
 
-        "MULTILINE_COMMENT": Comment,
+        "MULTILINE_COMMENT": Comment.Multiline,
     }
 
     def get_tokens_unprocessed(self, text):
@@ -76,6 +76,7 @@ class PGDLLexer(Lexer):
         ws_len = len(text) - last_pos
         if ws_len:
             yield (last_pos, Whitespace, text[last_pos:])    # whitespace
+
 
 grammar_string = """
 
@@ -155,7 +156,7 @@ FIELD_NAME_IDENTIFIER: (LETTER | "_") [LETTER | DIGIT | "_"]*
 GLOBAL_IDENTIFIER: (LETTER | "_") [LETTER | DIGIT | "_"]*
 VAR_REF_IDENTIFIER: (LETTER | "_") [LETTER | DIGIT | "_"]*
 FUN_NAME_IDENTIFIER: (LETTER | "_") [LETTER | DIGIT | "_"]*
-MULTILINE_COMMENT: /\/\*(\*(?!\/)|[^*])*\*\//
+MULTILINE_COMMENT: /\\/\\*(\\*(?!\\/)|[^*])*\\*\\//
 
 ?expression: conjunction_expression
 
