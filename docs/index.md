@@ -1,3 +1,16 @@
+## Usage
+
+To use in your documentation, add a `pip install git+https://github.com/luelista/pygments-pgdl-lexer.git` command to your build process.
+
+Then add code snippets with a `pgdl` language marker to your markdown:
+
+````
+``` pgdl
+My_Type struct {}
+```
+````
+
+
 ## Examples
 
 ```pgdl
