@@ -1,0 +1,13 @@
+site_name: PGDL Lexer for Pygments
+
+
+theme:
+    name: material
+
+
+markdown_extensions:
+    - pymdownx.highlight:
+        anchor_linenums: true
+
+
+repo_url: https://github.com/luelista/pygments-pgdl-lexer
