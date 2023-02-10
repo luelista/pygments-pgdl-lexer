@@ -1,8 +1,9 @@
 site_name: PGDL Lexer for Pygments
-
+site_url: https://luelista.github.io/pygments-pgdl-lexer/
 
 theme:
     name: material
+    font: false
 extra_css:
     - style/style.css
 
