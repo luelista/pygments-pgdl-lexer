@@ -35,7 +35,7 @@ class PGDLLexer(Lexer):
         "EQ_OP": Operator,
         "COMP_OP": Operator,
         "DOLLAR": Operator,
-        
+
         "IDENTIFIER": Name,
         "GLOBAL_IDENTIFIER": Name.Class,
         "FIELD_NAME_IDENTIFIER": Name.Property,
@@ -60,7 +60,7 @@ class PGDLLexer(Lexer):
     }
 
     def get_tokens_unprocessed(self, text):
-        fi_parser = lark.Lark(grammar_string, parser="earley", lexer="dynamic", start=["start","anytype","expression"], maybe_placeholders=True)
+        fi_parser = lark.Lark(grammar_string, parser="earley", lexer="dynamic", start=["start","anytype","expression"], keep_all_tokens=True, maybe_placeholders=True)
         last_pos = 0
         brace_ctr = 0
         tree = fi_parser.parse(text, "start")
