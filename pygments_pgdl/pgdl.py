@@ -29,6 +29,11 @@ class PGDLLexer(Lexer):
         "COLON": Operator,
         "DOT": Operator,
         "DOTS": Operator,
+        "TERM_OP": Operator,
+        "FACTOR_OP": Operator,
+        "CONJ_OP": Operator,
+        "EQ_OP": Operator,
+        "COMP_OP": Operator,
         "IDENTIFIER": Name,
         "GLOBAL_IDENTIFIER": Name.Class,
         "FIELD_NAME_IDENTIFIER": Name.Property,
@@ -56,9 +61,7 @@ class PGDLLexer(Lexer):
         fi_parser = lark.Lark(grammar_string, parser="earley", lexer="dynamic", start=["start","anytype","expression"], maybe_placeholders=True)
         last_pos = 0
         brace_ctr = 0
-        #for token in fi_parser.lex(text):
         tree = fi_parser.parse(text, "start")
-        print(tree.pretty())
         for token in tree.scan_values(lambda x:True):
             #print("token: ",token, isinstance(token, lark.Token))
             if not isinstance(token, lark.Token): continue

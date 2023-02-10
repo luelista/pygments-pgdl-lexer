@@ -8,6 +8,7 @@ theme:
 markdown_extensions:
     - pymdownx.highlight:
         anchor_linenums: true
+    - pymdownx.superfences
 
-
+    
 repo_url: https://github.com/luelista/pygments-pgdl-lexer
