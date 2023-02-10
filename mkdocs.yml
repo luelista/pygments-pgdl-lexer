@@ -3,6 +3,8 @@ site_name: PGDL Lexer for Pygments
 
 theme:
     name: material
+extra_css:
+    - style/style.css
 
 
 markdown_extensions:
