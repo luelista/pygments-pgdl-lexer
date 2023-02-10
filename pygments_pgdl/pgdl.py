@@ -34,6 +34,8 @@ class PGDLLexer(Lexer):
         "CONJ_OP": Operator,
         "EQ_OP": Operator,
         "COMP_OP": Operator,
+        "DOLLAR": Operator,
+        
         "IDENTIFIER": Name,
         "GLOBAL_IDENTIFIER": Name.Class,
         "FIELD_NAME_IDENTIFIER": Name.Property,
